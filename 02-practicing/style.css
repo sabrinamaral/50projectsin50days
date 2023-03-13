@@ -1,0 +1,87 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+:root {
+    --line-filled: #e22ba8;
+    --line-empty: #c3bebe;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background: #e3e3e3;
+    font-family: 'Roboto', sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    overflow: hidden;
+    margin: 0;
+}
+
+.container {
+    text-align: center;
+}
+
+.progress-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 30vw;
+    position: relative;
+    margin-bottom: 2rem;
+}
+
+.progress-container::before {
+    content: '';
+    background: var(--line-empty);
+    position: absolute;
+    top: 50%;
+    left: 0;
+    height: 4px;
+    width: 100%;
+    z-index: -1;
+}
+
+.progress-line {
+    background: var(--line-filled);
+    position: absolute;
+    top: 50%;
+    left: 0;
+    height: 4px;
+    width: 0;
+    z-index: -1;
+    transition: 0.4s ease;
+}
+
+.progress-steps {
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 3px 7px;
+    border-radius: 50%;
+    border: 3px solid var(--line-empty);
+}
+
+.progress-steps.active {
+    border: 3px solid var(--line-filled);
+    transition: 1s ease
+}
+
+.btn {
+    margin-left: 1rem;
+    border-radius: .5rem;
+    background-color: var(--line-filled);
+    color: white;
+    padding: .5rem 2rem;
+    border: none;
+    cursor: pointer;
+    font-size: .9rem;
+}
+
+.btn:disabled {
+    background-color: var(--line-empty);
+    cursor: not-allowed;
+}
